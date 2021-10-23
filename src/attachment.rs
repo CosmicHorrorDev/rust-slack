@@ -32,28 +32,23 @@ pub struct Attachment {
     /// Optional URL that will hyperlink the `author_name` text mentioned above. Will only
     /// work if `author_name` is present.
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(with = "::url_serde")]
     pub author_link: Option<Url>,
     /// Optional URL that displays a small 16x16px image to the left of
     /// the `author_name` text. Will only work if `author_name` is present.
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(with = "::url_serde")]
     pub author_icon: Option<Url>,
     /// Optional larger, bolder text above the main body
     #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<SlackText>,
     /// Optional URL to link to from the title
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(with = "::url_serde")]
     pub title_link: Option<Url>,
     /// Optional URL to an image that will be displayed in the body
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(with = "::url_serde")]
     pub image_url: Option<Url>,
     /// Optional URL to an image that will be displayed as a thumbnail to the
     /// right of the body
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(with = "::url_serde")]
     pub thumb_url: Option<Url>,
     /// Optional text that will appear at the bottom of the attachment
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -61,7 +56,6 @@ pub struct Attachment {
     /// Optional URL to an image that will be displayed at the bottom of the
     /// attachment
     #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(with = "::url_serde")]
     pub footer_icon: Option<Url>,
     /// Optional timestamp to be displayed with the attachment
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -101,7 +95,7 @@ pub struct Action {
     pub style: Option<String>,
     /// Value of action
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub value: Option<String>
+    pub value: Option<String>,
 }
 
 impl Action {
@@ -111,15 +105,14 @@ impl Action {
         text: S,
         name: S,
         style: Option<String>,
-        value: Option<String>
-
+        value: Option<String>,
     ) -> Action {
         Action {
             action_type: action_type.into(),
             text: text.into(),
             name: name.into(),
             style,
-            value
+            value,
         }
     }
 }
