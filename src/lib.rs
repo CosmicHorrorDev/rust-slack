@@ -26,11 +26,11 @@ extern crate serde;
 extern crate serde_json;
 extern crate url;
 
-pub use attachment::{Action, Attachment, AttachmentBuilder, Field, Section};
-pub use error::{Error, Result};
-pub use hex::{HexColor, SlackColor};
-pub use payload::{Parse, Payload, PayloadBuilder};
-pub use slack::{Slack, SlackLink, SlackText, SlackTextContent, SlackTime, SlackUserLink};
+pub use crate::attachment::{Action, Attachment, AttachmentBuilder, Field, Section};
+pub use crate::error::{Error, Result};
+pub use crate::hex::{HexColor, SlackColor};
+pub use crate::payload::{Parse, Payload, PayloadBuilder};
+pub use crate::slack::{Slack, SlackLink, SlackText, SlackTextContent, SlackTime, SlackUserLink};
 
 #[macro_use]
 mod macros;
@@ -66,7 +66,7 @@ pub trait TryFrom<T>: Sized {
     type Err;
 
     /// Performs the conversion.
-    fn try_from(T) -> ::std::result::Result<Self, Self::Err>;
+    fn try_from(_: T) -> ::std::result::Result<Self, Self::Err>;
 }
 
 impl<T, U> TryInto<U> for T

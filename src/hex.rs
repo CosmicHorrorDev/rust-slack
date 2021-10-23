@@ -1,6 +1,6 @@
-use error::{Error, ErrorKind};
-use hexx::FromHex;
-use TryFrom;
+use crate::error::{Error, ErrorKind};
+use crate::hexx::FromHex;
+use crate::TryFrom;
 
 /// A `HexColor` `String` can be one of:
 ///
@@ -117,7 +117,7 @@ impl TryFrom<SlackColor> for HexColor {
 #[cfg(test)]
 mod test {
     use super::*;
-    use {HexColor, TryFrom};
+    use crate::{HexColor, TryFrom};
 
     #[test]
     fn test_hex_color_too_short() {

@@ -1,6 +1,6 @@
-use {Attachment, SlackText, TryInto};
-use helper::bool_to_u8;
-use error::{Error, Result};
+use crate::{Attachment, SlackText, TryInto};
+use crate::helper::bool_to_u8;
+use crate::error::{Error, Result};
 use serde::{Serialize, Serializer};
 use reqwest::Url;
 
