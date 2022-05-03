@@ -1,5 +1,4 @@
 #![deny(
-    missing_docs,
     missing_debug_implementations,
     trivial_casts,
     trivial_numeric_casts,
@@ -14,9 +13,6 @@
 //! Library to send messages to slack rooms
 //! supports entire messaging API, including attachments and fields
 //! also support for built-in colors as well as any hex colors
-
-#[macro_use]
-extern crate error_chain;
 
 pub use crate::attachment::{Action, Attachment, AttachmentBuilder, Field, Section};
 pub use crate::error::{Error, Result};
